@@ -1,16 +1,20 @@
 
 #!/bin/bash
 
+# Sets all variables as false
 USE_SYN_SCAN=false USE_VERBOSE_SCAN=false USE_OS_DETECTION=false
 USE_PINGING=false
 
 # ask the user for an IP Adress
+# gives the variable a value, depending on the choice of the user
 read -p "Enter the target IP Adress to scan: " TARGET_IP
 
 # ask the user for the target ports to scan
+# gives the variable a value, depending on the choice of the user
 read -p "Enter the needed ports to scan: " TARGET_PORTS
 
-#ask the user if they want to use a timing template
+# gives the user the choice to use/add a timing template.
+
 read -p "Do you want to use a timing template? (y/n): " choice
 
 # ask the user to select a timing template  (T1 to T5)
@@ -44,7 +48,8 @@ else
         echo "No Timing Template selected."
 fi
 
-# ask the user if they is supposed to be a silent scan
+# gives the user the choice to use the Syn scan feature.
+
 read -p "Do you want the scan to be hidden? (y/n): " choice
 
 if [[ "$choice" =~ ^[Yy]$ ]]; then
@@ -58,7 +63,7 @@ else    echo "Invalid Input. Exiting."
         exit 1
 fi
 
-# ask the user if it wants the Scan to be verbose
+# gives the user the choice to use the verbose feature.
 
 read -p "Do you want the scan to be verbose? (y/n): " choice
 
@@ -71,7 +76,7 @@ elif [[ "$choice" =~ ^[Nn]$ ]]; then
         echo "verbose scan will not be running."
 fi
 
-# ask the user if it wants the OS to be detected
+# gives the user the choice to use the OS detection feature.
 
 read -p "Do you want to detect the OS? (y/n): " choice
 
